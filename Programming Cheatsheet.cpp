@@ -3,8 +3,7 @@
 using namespace std;
 
 int main(){
-
-
+	
 
 	cout << "------Data types------" << endl;
 	// Datatypes
@@ -13,10 +12,12 @@ int main(){
 	cout << "An integer: " << wholeNumber << endl;
 
 	// float - stores numbers with decimal places (up to 7 decimal digits)
+	cout.precision(7); //This is necessary for printing the maximum decimal places. In general is not really necessary on a basic level!
 	float floatNumber = 3.159265;
 	cout << "A float: " << floatNumber << endl;
 
 	// double - also stores numbers with decimal places (up to 15 decimal digits)
+	cout.precision(15);
 	double doubleNumber = 3.159265867782;
 	cout << "A double: " << doubleNumber << endl;
 
@@ -32,6 +33,7 @@ int main(){
 	// bool - stores 2 values only, true or false
 	bool booleanExample = true;
 	cout << "A boolean: " << booleanExample << endl << endl << endl;
+	// Note: CPP will always print booleans as 1 for true and 0 for false
 
 
 	// these datatypes are stored into things called variables
@@ -41,9 +43,9 @@ int main(){
 	//  - they CAN'T have special characters in them
 	//  - they CAN'T start with a number
 	int numberExample = 5, secondNumberExample;
-//   ^        ^         ^           ^
-//datatype  variable  value     also a variable! Declared without a value
-//           name
+    //   ^        ^         ^           ^
+    //datatype  variable  value     also a variable! Declared without a value
+    //           name
 
 
 
@@ -68,7 +70,7 @@ int main(){
 	int total = 5;
 
 	cout << "The value of total before the operation is: " << total << endl;
-	total = total + 10
+	total = total + 10;
 	//        5   + 10
 	cout << "The value of total after the operation is: " << total << endl << endl << endl;
 
@@ -115,16 +117,22 @@ int main(){
 	// x >= y if x is greater than or equal to y
 	// x <= y if x is less than or equal to y
 
-	int compFirst = 5, compSecond 3;
-	cout << "Five is equal to 3" << compFirst == compSecond << endl;
-	cout << "Five is not equal to 3" << compFirst != compSecond << endl;
-	cout << "Five greater than 3" << compFirst > compSecond << endl;
-	cout << "Five less than 3" << compFirst < compSecond << endl;
-	cout << "Five is greater than or equal to 3" << compFirst >= compSecond << endl;
-	cout << "Five is less than or equal to 3" << compFirst <= compSecond << endl;
+	int compFirst = 5, compSecond = 3;
+	cout << "Five is equal to 3: " << (compFirst == compSecond) << endl;
+	cout << "Five is not equal to 3: " << (compFirst != compSecond) << endl;
+	cout << "Five greater than 3: " << (compFirst > compSecond) << endl;
+	cout << "Five less than 3" << (compFirst < compSecond) << endl;
+	cout << "Five is greater than or equal to 3: " << (compFirst >= compSecond) << endl;
+	cout << "Five is less than or equal to 3: " << (compFirst <= compSecond) << endl << endl << endl;
 
 
 
+
+	cout << "------Logical Operators------" << endl;
+
+	// There are three basic logical operators, AND (&&), OR (||) and NOT (!)
+
+	// These are the truth tables for the three
 	// 	AND       &&
 	//   T  F
 	// T T  F
@@ -137,10 +145,59 @@ int main(){
 	// F T  F
 	// 
 
+	// NOT        !
+	// Reverses the result (Returns false if answer is true and vise versa)
+
+	// Example!
+	cout <<" TRUE truth table" << endl;
+	cout << "True AND True: " << (true && true) << endl;
+	cout << "True AND False: " << (true && false) << endl;
+	cout << "False AND True: " << (false && true) << endl;
+	cout << "False AND False: " << (false && false) << endl << endl;
+
+	cout <<" FALSE truth table" << endl;
+	cout << "True OR True: " << (true || true) << endl;
+	cout << "True OR False: " << (true || false) << endl;
+	cout << "False OR True: " << (false || true) << endl;
+	cout << "False OR False: " << (false || false) << endl << endl;
+	// 							       ^
+	// Note that we enclose the expressions we have to evaluate inside () parentheses
 
 
+	int firstNumber = 10, secondNumber = 15, thirdNumber = 15;
+	// You can use these in conjunction with the operators!
+	cout << "Comparison operators AND logical operators used together" << endl;
+	cout << "(10 is equal to 15) AND (10 is less than 15): " << ( (firstNumber == secondNumber) && (firstNumber < secondNumber) ) << endl;
+	// Lets break it down step by step
+	// ( (firstNumber == secondNumber) && (firstNumber < secondNumber) )
+	// first lets replace the variables with the actual numbers
+	// ( (10 == 15) && (10 < 15) )
+
+	// evaluate the left expression
+	// ( (false) && (10 < 15) )
+	// then the right
+	// ( (false) && (true) )
+
+	// looking at the truth table above the answer should be
+	// ( false )
 
 
+	// Example 2
+	cout << "(NOT(15 is equal to 15)) OR (10 is less than or equal to 15): " << ( !(secondNumber == thirdNumber) || (firstNumber <= secondNumber) ) << endl;
 
+	// Replace the variables with actual numbers
+	// ( !(15 == 15) || (10 <= 15) )
+
+	// evaluate left expression
+	// ( !(true) || (10 <= 15) )
+
+	// simplify further! NOT reverses the result so NOT True is False
+	// ( false || (10 <= 15) )
+
+	// evaluate the right expression
+	// ( false || true )
+
+	// according to the truth table, false OR true is true so the answer is
+	// ( true )
 
 }
